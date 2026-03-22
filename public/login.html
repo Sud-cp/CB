@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login - Cafe Backyard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">Cafe Backyard</div>
+  <div class="nav-links">
+    <a href="/">Menu</a>
+    <a href="/offers.html">Offers</a>
+  </div>
+</nav>
+
+<h2>Login</h2>
+
+<input id="username" placeholder="Username"><br><br>
+<input id="password" type="password" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+
+<p>New user? <a href="/register.html">Register here</a></p>
+
+<script>
+function login() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  fetch("/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, password })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.error) {
+      alert(data.error);
+    } else {
+      alert("Login successful");
+      window.location.href = "/";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+</head>
+<body>
+
+  <h2>🔐 Admin Login</h2>
+
+  <input id="username" placeholder="Username"><br><br>
+  <input id="password" type="password" placeholder="Password"><br><br>
+
+  <button onclick="login()">Login</button>
+
+  <script>
+    function login() {
+      fetch("/admin/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: document.getElementById("username").value,
+          password: document.getElementById("password").value
+        })
+      })
+      .then(res => {
+        if (!res.ok) throw new Error("Invalid login");
+        return res.json();
+      })
+      .then(() => {
+        window.location.href = "/admin.html";
+      })
+      .catch(() => {
+        alert("Wrong credentials");
+      });
+    }
+  </script>
+
+</body>
+</html>

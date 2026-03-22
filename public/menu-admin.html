@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menu Admin</title>
+</head>
+<body>
+    <nav class="navbar">
+  <div class="logo">Admin Panel</div>
+  <div class="nav-links">
+    <a href="/admin.html">Orders</a>
+    <a href="/menu-admin.html">Menu</a>
+    <a href="/revenue.html">Revenue</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </div>
+</nav>
+
+  <h2>🍽 Menu Management</h2>
+
+  <input id="name" placeholder="Dish name">
+<input id="price" placeholder="Price">
+<input id="image" placeholder="Image URL (optional)">
+<button onclick="addItem()">Add Dish</button>
+
+
+  <hr>
+  <div id="menuList"></div>
+
+  <script src="menu-admin.js"></script>
+</body>
+</html>

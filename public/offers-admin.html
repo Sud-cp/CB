@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Offers Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">Admin Panel</div>
+  <div class="nav-links">
+    <a href="/admin.html">Orders</a>
+    <a href="/menu-admin.html">Menu</a>
+    <a href="/offers-admin.html">Offers</a>
+    <a href="/revenue.html">Revenue</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </div>
+</nav>
+
+<h2>🔥 Manage Offers</h2>
+
+<input id="title" placeholder="Offer title">
+<input id="description" placeholder="Description">
+<input id="price" placeholder="Price">
+<input id="image" placeholder="Image URL (optional)">
+<button onclick="addOffer()">Add Offer</button>
+
+<hr>
+<div id="offersList"></div>
+
+<script src="offers-admin.js"></script>
+</body>
+</html>
